@@ -1,0 +1,134 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+
+defaultTasks 'clean', 'check', 'copyTask', 'acceptStories'
+
+repositories {
+   flatDir {
+       dirs 'resources/test', 'story'
+   }
+}
+
+configurations { jbehave }
+
+sourceSets {
+    test {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'resources/test'
+        }
+    }
+	unitTest {
+		java.srcDir file('src/test')
+		}
+}
+
+dependencies {
+   compile fileTree(dir: 'resources/test', include: ['*.jar'])
+   unitTestCompile files("$project.buildDir/classes/test")
+   unitTestCompile 'junit:junit:[4,)'
+}
+
+task copyTask (type: Copy) {
+	description 'Copies the resource directory to the target directory.'
+	into 'build/classes/test'
+	from('src')
+	include '*.story'
+}
+
+/*
+task copyMethod << {
+    copy {
+		from 'src'
+		into 'build/classes/test'
+		include '*.story'
+	}
+}
+
+testRun.shouldRunAfter copy
+
+
+task testRun(type:JavaExec) {
+	main 'org.jbehave.core.junit.JUnitStories'
+	doFirst {
+		file('target').delete();
+	}
+	
+	doLast {
+	
+		file('target').mkdirs();
+		
+		events 'started', 'passed'
+		
+		def filter = '*'
+		if (filter == null) {
+		  filter = '*'
+		}
+		def stories = sourceSets.test.resources.matching {
+		  it.include filter
+		  args it.include;
+		}
+		 systemProperty('bdd.stories', stories)
+	}
+}
+
+
+task testRun(type: JavaExec) {
+	classpath  file('org.jbehave.core.junit.JUnitStories')
+	if(project.hasProperty("params")) {
+		args "StoryBase.java";
+	}
+}
+
+
+task testRun << {
+    project(
+            name: 'jbehave',
+            classname: 'org.jbehave.core.junit.JUnitStories',
+            classpath: configurations.jbehave.asPath)
+
+    project.jbehave(
+            includes: 'src/test',
+            generateViewAfterStories: true
+    )
+}
+*/
+
+test {
+  onlyIf { false } // We need a running server
+  testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task acceptStories(type: Test) {
+	  ignoreFailures = true
+	  doFirst {
+	    // Need 'target' directory on *nix systems to get any output
+	    file('target').mkdirs()
+	 
+	    def filter = System.getProperty('bdd.stories')
+	    if (filter == null) {
+	      filter = '*'
+	    }
+		println filter
+	    def stories = sourceSets.test.java.matching {
+	      it.include filter
+	    }.asPath
+	    systemProperty('bdd.stories', stories)
+	  }
+	}
+
+tasks.withType(Test) {
+	testLogging {
+		events 'started', 'passed', "skipped", "failed", "standardOut", "standardError"
+	}
+}
+
+uploadArchives {
+	repositories { flatDir { dirs 'repos' } }
+}

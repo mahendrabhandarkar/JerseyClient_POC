@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jackson-core-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jackson-jaxrs-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jackson-mapper-asl-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jackson-xc-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jersey-client-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jersey-core-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jersey-json-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jersey-server-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jersey-servlet-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jettison-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/lib/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-apache-client-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-atom-abdera-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-guice-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-multipart-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-simple-server-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/jersey-spring-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/oauth-client-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/oauth-server-1.18.jar"/>
+	<classpathentry kind="lib" path="C:/javaprg/JerseyClient_POC/jerseylib/contribs/oauth-signature-1.18.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
